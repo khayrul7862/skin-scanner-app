@@ -1,4 +1,4 @@
-name: Build Skin Scanner APK
+ name: Build Skin Scanner APK
 
 on:
   push:
@@ -28,9 +28,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install buildozer "cython<3.0.0"
 
-      - name: Build APK with Buildozer
+      - name: Accept Android Licenses & Build APK
         run: |
-          buildozer android debug
+          yes | buildozer android debug
+        env:
+          ACCEPT_BUILD_NDK_LICENSES: "y"
+          ACCEPT_BUILD_SDK_LICENSES: "y"
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
