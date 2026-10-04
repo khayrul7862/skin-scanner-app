@@ -11,6 +11,7 @@ orientation = portrait
 fullscreen = 0
 
 android.permissions = CAMERA, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
+android.accept_sdk_license = True
 
 [buildozer]
 log_level = 2
